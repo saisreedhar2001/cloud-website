@@ -1,0 +1,358 @@
+*{
+    margin:0px;
+    padding:0px;
+      scroll-behavior: smooth;
+}
+.html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.navbar{
+    font-family: 'Montserrat', sans-serif;
+    position:fixed;
+    width:100%;
+    height:70px;
+    background-color:black;
+    display: block;
+}
+#logo{
+    position:absolute;
+    padding-top:3px;
+    width:200px;
+    height:90px;
+    display: inline-block;
+    left:40px;
+}
+#menu{
+    position: absolute;
+    left:20%;
+    top:40px;
+}
+#menu li{
+    font-weight:200;
+    color:white;
+    display: inline;
+    padding:20px;
+    cursor: pointer;
+}
+
+.active{
+    display: block;
+}
+#toggle-btn{
+    position: absolute;
+    width:50px;
+    height:50px;
+    left:85vw;
+    top:20px;
+    display:none;
+}
+.container{
+    text-align: center;
+    padding-bottom: 0px;
+}
+#toggle-btn #side1,#side2,#side3{
+    background:white;
+    height:5px;
+    width:70%;
+    display: block;
+    margin-bottom:5px;
+}
+.text-inner{
+    font-size:6vw;
+    color:rgba(255, 255, 255, 0.9);
+}
+.text-inner-2{
+        font-size:6vw;
+        color:rgba(255,255,255,0.9);
+}
+
+#icon{
+    position: absolute;
+    width:7vw;
+    left:40%;
+    top:0%;
+    opacity: 80%;
+}
+/* Float four columns side by side */
+.column {
+    float: left;
+    width: 25%;
+
+
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row {margin: 0 -5px;
+       justify-content: center;
+       margin-top: 40px;
+       margin-bottom: 30px;
+}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    height: 350px;
+    align-items: center;
+    background-color: #f1f1f1;
+  }
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .row{
+        display: flex;
+        flex-wrap: wrap;
+        
+        
+    }
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        padding: 16px;
+        height: 400px;
+       
+        align-items: center;
+        background-color: #f1f1f1;
+      }
+      .column {
+        float: left;
+        width:100%;
+        margin: 10%;
+         padding: 0 10px;
+      }
+      
+  #smit-logo4{
+    padding-top: 20px;
+    margin-right: 20px;
+    width:50%;
+    
+}
+  }
+
+
+
+#smitheading{
+    font-family: 'Montserrat',sans-serif;
+    opacity:80%;
+    font-size:1.2em;
+}
+#smit-logo{
+    padding-top: 20px;
+    width:12vw;
+}
+#smit-logo2{
+    padding-top: 20px;
+    margin-left: 20px;
+    width:12vw;
+}
+#smit-logo3{
+    padding-top: 20px;
+    margin-right: 20px;
+    width:12vw;
+}
+
+#smit-logo4{
+    padding-top: 20px;
+  
+    width:80%;
+    
+}
+
+#imagediv{
+    width:50px;
+    display:inline-block;
+    margin-right:30px;
+    padding-left:20px;
+}
+#imaged{
+    padding-left:40px;
+    padding-top:20px;
+}
+
+#logo2{
+    display: block;
+}
+.side1{
+    background: #000;
+}
+@media screen and (max-width: 1250px) {
+    
+    #slideimage{
+        height:67%;
+    }
+  #toggle-btn{
+      display:inline-block;
+      width:50px;
+      
+      left:95%;
+      ;
+  
+  }
+  
+  #menu{
+      display: none;
+      left:0px;
+      top:100px;
+      width:100%;
+      text-align: center;
+  }
+  #menu li{
+      width:100%;
+      display: block;
+      background:#000;
+      opacity: 0.9;
+      font-weight: lighter;
+      font-size: 12px;
+      color:white;
+      
+      padding:22px;
+      border-bottom: 1px solid white;
+  }
+  
+}
+
+#list{
+    list-style-type: square;
+}
+
+@media only screen and (max-width: 1085px) {
+#contact{
+    height:calc(400px + 20vw);
+}
+}
+
+@media only screen and (max-width: 1010px) {
+    #hod{
+         height:320px;
+    }
+    #contact-images{
+    display:inline-block;
+    margin-right: 4%;
+    }
+}
+@media only screen and (max-width: 991px) {
+#contact{
+    height:calc(600px + 20vw);
+}
+}
+@media only screen and (max-width: 850px) {
+#slideimage{
+    height:70%;
+}
+#toggle-btn{
+    left:90vw;
+}
+ #hod{
+         height:380px;
+    }
+    #imagediv{
+    width:40px;
+    display:inline-block;
+    margin-right:20px;
+    }
+    
+}
+
+@media only screen and (max-width: 775px) {
+        #contact{
+    height:calc(700px + 20vw);
+}
+
+#notice-board{
+    height:500px;
+}
+}
+@media only screen and (max-width: 740px) {
+ #hod{
+         height:380px;
+    }
+}
+@media only screen and (max-width: 680px) {
+ #hod{
+         height:460px;
+    }
+}
+@media only screen and (max-width: 579px) {
+#notice-board{
+    height:500px;
+}
+ #hod{
+         height:470px;
+    }
+}
+@media only screen and (max-width: 500px) {
+#notice-board{
+    height:650px;
+}
+#notice-heading{
+font-size:6vw;
+}
+#slideimage{
+    height:53%;
+}
+#hod{
+         height:325px;
+    }
+    #hod-para{
+        font-size:17px;
+    }
+
+}
+@media only screen and (max-width: 424px) {
+#hod-para{
+    font-size:18px;
+}
+#hod{
+    height:380px;
+}
+}
+@media only screen and (max-width: 400px) {
+     #contact{
+    height:calc(850px + 20vw);
+   }
+#slideimage{
+    height:57%;
+}
+#toggle-btn{
+    left:85vw;
+}
+.text-inner-2{
+    font-size:8vw;
+}
+.text-inner{
+     font-size:8vw;
+   
+}
+#icon{
+    left:54%;
+}
+#hod{
+    height:335px;
+}
+#hod-para{
+    font-size:16px;
+}
+}
+@media only screen and (max-width: 366px) {
+   #contact{
+    height:calc(850px + 20vw);
+   } 
+
+}
+@media only screen and (max-width: 350px) {
+#slideimage{
+    height:51%;
+}
+#hod-para{
+    font-size:13px;
+}
+#hod{
+height:300px;
+}
+}
