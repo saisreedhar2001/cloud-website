@@ -1,55 +1,98 @@
-var responsiveSlider = function() {
+/**
+ * @description Change Home page slider's arrows active status
+ */
+ function updateSliderArrowsStatus(
+  cardsContainer,
+  containerWidth,
+  cardCount,
+  cardWidth
+) {
+  if (
+    $(cardsContainer).scrollLeft() + containerWidth <
+    cardCount * cardWidth + 15
+  ) {
+    $("#slide-right-container").addClass("active");
+  } else {
+    $("#slide-right-container").removeClass("active");
+  }
+  if ($(cardsContainer).scrollLeft() > 0) {
+    $("#slide-left-container").addClass("active");
+  } else {
+    $("#slide-left-container").removeClass("active");
+  }
+}
+$(function() {
+  // Scroll products' slider left/right
+  let div = $("#cards-container");
+  let cardCount = $(div)
+    .find(".cards")
+    .children(".card").length;
+  let speed = 1000;
+  let containerWidth = $(".container").width();
+  let cardWidth = 250;
 
-    var slider = document.getElementById("slider");
-    var sliderWidth = slider.offsetWidth;
-    var slideList = document.getElementById("slideWrap");
-    var count = 1;
-    var items = slideList.querySelectorAll("li").length;
-    var prev = document.getElementById("prev");
-    var next = document.getElementById("next");
-    
-    window.addEventListener('resize', function() {
-      sliderWidth = slider.offsetWidth;
-    });
-    
-    var prevSlide = function() {
-      if(count > 1) {
-        count = count - 2;
-        slideList.style.left = "-" + count * sliderWidth + "px";
-        count++;
-      }
-      else if(count = 1) {
-        count = items - 1;
-        slideList.style.left = "-" + count * sliderWidth + "px";
-        count++;
-      }
-    };
-    
-    var nextSlide = function() {
-      if(count < items) {
-        slideList.style.left = "-" + count * sliderWidth + "px";
-        count++;
-      }
-      else if(count = items) {
-        slideList.style.left = "0px";
-        count = 1;
-      }
-    };
-    
-    next.addEventListener("click", function() {
-      nextSlide();
-    });
-    
-    prev.addEventListener("click", function() {
-      prevSlide();
-    });
-    
-    setInterval(function() {
-      nextSlide()
-    }, 8000);
-    
-    };
-    
-    window.onload = function() {
-    responsiveSlider();  
+  updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+
+  //Remove scrollbars
+  $("#slide-right-container").click(function(e) {
+    if ($(div).scrollLeft() + containerWidth < cardCount * cardWidth) {
+      $(div).animate(
+        {
+          scrollLeft: $(div).scrollLeft() + cardWidth
+        },
+        {
+          duration: speed,
+          complete: function() {
+            setTimeout(
+              updateSliderArrowsStatus(
+                div,
+                containerWidth,
+                cardCount,
+                cardWidth
+              ),
+              2005
+            );
+          }
+        }
+      );
     }
+    updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+  });
+  $("#slide-left-container").click(function(e) {
+    if ($(div).scrollLeft() + containerWidth > containerWidth) {
+      $(div).animate(
+        {
+          scrollLeft: "-=" + cardWidth
+        },
+        {
+          duration: speed,
+          complete: function() {
+            setTimeout(
+              updateSliderArrowsStatus(
+                div,
+                containerWidth,
+                cardCount,
+                cardWidth
+              ),
+              2005
+            );
+          }
+        }
+      );
+    }
+    updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+  });
+
+  // If resize action ocurred then update the container width value
+  $(window).resize(function() {
+    try {
+      containerWidth = $("#cards-container").width();
+      updateSliderArrowsStatus(div, containerWidth, cardCount, cardWidth);
+    } catch (error) {
+      console.log(
+        `Error occured while trying to get updated slider container width: 
+            ${error}`
+      );
+    }
+  });
+});
